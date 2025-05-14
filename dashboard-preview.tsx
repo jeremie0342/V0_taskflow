@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import {
   BarChart,
@@ -35,7 +33,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isToday } from "date-fns"
 
@@ -607,64 +604,4 @@ export default function DashboardPreview() {
                     </div>
                     <div className="text-center py-4 text-muted-foreground">Chargement des tâches en retard...</div>
                   </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Team */}
-          <div className="mt-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>Équipe</CardTitle>
-                <CardDescription>Membres de l'équipe et leur charge de travail</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {teamMembers.map((member) => (
-                    <div
-                      key={member.id}
-                      className="flex flex-col md:flex-row md:items-center justify-between p-4 border rounded-lg"
-                    >
-                      <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                        <Avatar className="w-10 h-10">
-                          <AvatarFallback>{member.initials}</AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <div className="font-medium">{member.name}</div>
-                          <div className="text-sm text-muted-foreground flex items-center flex-wrap gap-2">
-                            <span>{member.email}</span>
-                            <Badge variant="outline">{member.role}</Badge>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="space-y-2 w-full md:w-1/3">
-                        <div className="flex items-center justify-between text-sm">
-                          <span>Charge de travail</span>
-                          <span className="font-medium">{member.stats.workload}%</span>
-                        </div>
-                        <Progress
-                          value={member.stats.workload}
-                          className="h-2"
-                          indicatorClassName={getWorkloadColor(member.stats.workload)}
-                        />
-                        <div className="flex justify-between text-xs text-muted-foreground">
-                          <span>
-                            {member.stats.completedTasks}/{member.stats.totalTasks} tâches
-                          </span>
-                          {member.stats.overdueTasks > 0 && (
-                            <span className="text-rose-500">{member.stats.overdueTasks} en retard</span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </main>
-      </div>
-    </div>
-  )
-}
+                </Tabs>\
